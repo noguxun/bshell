@@ -53,29 +53,29 @@ void int tstc(void)
 
 int serial_putc(char c)
 {
-    while(*UART0FR & UART_PL01x_FR_TXFF);
+	while(*UART0FR & UART_PL01x_FR_TXFF);
 
-    *UART0DR = c;
+	*UART0DR = c;
 
-    return 0;
+	return 0;
 }
 
 int serial_getc(void)
 {
-    unsigned int data;
+	unsigned int data;
 
-    while (*UART0FR & UART_PL01x_FR_RXFE);
+	while (*UART0FR & UART_PL01x_FR_RXFE);
 
-    data = *UART0DR;
+	data = *UART0DR;
 
-    return (int)data;
+	return (int)data;
 }
 
 void print(const char *s) {
-    while(*s != '\0') { /* Loop until end of string */
-        serial_putc(*s);
-        s++; /* Next char */
-    }
+	while(*s != '\0') { /* Loop until end of string */
+		serial_putc(*s);
+		s++; /* Next char */
+	}
 }
 
 
