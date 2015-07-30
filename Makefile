@@ -9,7 +9,8 @@ all:
 	$(AS) $(FLAGS) -g startup.s -o startup.o
 	$(CC) $(FLAGS) -c -g bshell.c -o bshell.o
 	$(CC) $(FLAGS) -c -g console.c -o console.o
-	$(LD)  -Map zshell.map -T bshell.ld console.o bshell.o startup.o -o bshell.elf
+	$(CC) $(FLAGS) -c -g cmd.c -o cmd.o
+	$(LD)  -Map zshell.map -T bshell.ld cmd.o console.o bshell.o startup.o -o bshell.elf
 	$(OBJCOPY) -O binary bshell.elf bshell.bin
 
 clean:

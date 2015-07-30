@@ -51,7 +51,7 @@ void int tstc(void)
 }
 */
 
-int serial_putc(char c)
+int put_ch(char c)
 {
 	while(*UART0FR & UART_PL01x_FR_TXFF);
 
@@ -60,7 +60,7 @@ int serial_putc(char c)
 	return 0;
 }
 
-int serial_getc(void)
+int get_ch(void)
 {
 	unsigned int data;
 
@@ -71,12 +71,7 @@ int serial_getc(void)
 	return (int)data;
 }
 
-void print(const char *s) {
-	while(*s != '\0') { /* Loop until end of string */
-		serial_putc(*s);
-		s++; /* Next char */
-	}
-}
+
 
 
 
