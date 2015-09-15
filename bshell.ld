@@ -1,7 +1,9 @@
+
+
 ENTRY(_Reset)
 SECTIONS
 {
- . = 0x00010000;
+ . = SYM_RAM_START;
  .startup . : { startup.o(.text) }
  .text : { *(.text) }
  .data : { *(.data) }
