@@ -7,6 +7,8 @@
 
 
 int cmd_process(int argc, char * const argv[]);
+int put_ch(char c);
+int get_ch(void);
 
 
 static char console_buffer[CONFIG_SYS_CBSIZE + 1]; /* console I/O buffer */
@@ -14,7 +16,8 @@ static const char erase_seq[] = "\b \b";	/* erase sequence */
 static const char   tab_seq[] = "        ";	/* used to expand TABs */
 
 
-void put_chs(const char *s) {
+void put_chs(const char *s) 
+{
 	while(*s != '\0') { /* Loop until end of string */
 		put_ch(*s);
 		s++; /* Next char */

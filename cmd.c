@@ -1,5 +1,9 @@
 #define NULL	0
 
+void put_chs(const char *s);
+int put_ch(char c);
+int strcmp(const char * cs,const char * ct);
+
 struct cmd_tbl_s {
 	char		*name;		/* Command Name			*/
 	int		(*cmd)(int argc, char * const argv[]);

@@ -1,4 +1,4 @@
-PREFIX = arm-linux-gnueabi
+PREFIX = arm-eabi
 AS = $(PREFIX)-as
 CC = $(PREFIX)-gcc
 LD = $(PREFIX)-ld
